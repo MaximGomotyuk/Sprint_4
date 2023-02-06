@@ -11,31 +11,25 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-
 import java.util.List;
 
+@RunWith(Parameterized.class)
+
 public class OrdersFlow {
-    private static WebDriver driver;
+        private static WebDriver driver;
+           String metroStationName;
+           String date;
+           String daysQuantity;
+           String colour;
+           int numberOfButton;
 
-    @RunWith(Parameterized.class)
-    public static class OrderParameters {
-        String metroStationName;
-        String date;
-        String daysQuantity;
-        String colour;
-        int numberOfButton;
-
-
-        public OrderParameters (String metroStationName, String date, String daysQuantity, String colour, int numberOfButton) {
+        public OrdersFlow (String metroStationName, String date, String daysQuantity, String colour, int numberOfButton) {
             this.metroStationName = metroStationName;
             this.date = date;
             this.daysQuantity = daysQuantity;
             this.colour = colour;
             this.numberOfButton = numberOfButton;
-
         }
-
         @Parameterized.Parameters
         public static Object[][] getStations() {
             return new Object[][]{
@@ -67,7 +61,7 @@ public class OrdersFlow {
             driver.quit();
         }
     }
-}
+
 
 
 
