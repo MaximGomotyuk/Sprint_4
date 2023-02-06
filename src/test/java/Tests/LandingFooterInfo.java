@@ -9,15 +9,13 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+@RunWith(Parameterized.class)
 public class LandingFooterInfo {
     private static WebDriver driver;
-
-    @RunWith(Parameterized.class)
-    public static class EqualQuestionsInFooter {
         String actualQuestion;
         int questionNumber;
 
-        public EqualQuestionsInFooter(int questionNumber, String textQuestion) {
+        public LandingFooterInfo(int questionNumber, String textQuestion) {
             this.questionNumber = questionNumber;
             this.actualQuestion = textQuestion;
         }
@@ -51,4 +49,3 @@ public class LandingFooterInfo {
             driver.quit();
         }
     }
-}
